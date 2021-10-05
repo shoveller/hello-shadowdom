@@ -6,6 +6,20 @@
     <title>Title</title>
 </head>
 <body>
-
+    <p>외부 요소</p>
+    <div id="my-label"></div>
+    <script>
+        const root = document.querySelector('#my-label')
+        // mode: closed로 설정하면 화면에 표시되지 않음
+        root.attachShadow({ mode: 'open' })
+        root.shadowRoot.innerHTML = `
+          <p>쉐도우 돔</p>
+          <style>
+            * {
+                color: red;
+            }
+          </style>
+        `
+    </script>
 </body>
 </html>
